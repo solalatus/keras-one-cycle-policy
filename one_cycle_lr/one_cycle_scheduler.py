@@ -1,12 +1,12 @@
 import tensorflow.keras.backend as K
 from tensorflow.keras.callbacks import Callback
-import param_scheduler 
+from . param_scheduler import CosineScheduler
 #from param_scheduler import CosineScheduler
 import matplotlib.pyplot as plt
 
 class OneCycleScheduler(Callback):
     
-    def __init__(self, max_lr, momentums=(0.95,0.85), start_div=25., pct_start=0.3, verbose=True, sched=param_scheduler.CosineScheduler, end_div=None):
+    def __init__(self, max_lr, momentums=(0.95,0.85), start_div=25., pct_start=0.3, verbose=True, sched=CosineScheduler, end_div=None):
         self.max_lr, self.momentums, self.start_div, self.pct_start, self.verbose, self.sched, self.end_div = max_lr, momentums, start_div, pct_start, verbose, sched, end_div
         if self.end_div is None:
             self.end_div = start_div * 1e4
