@@ -1,7 +1,7 @@
 import numpy as np
 import math
-import keras.backend as K
-from keras.callbacks import LambdaCallback
+import tensorflow.keras.backend as K
+from tensorflow.keras.callbacks import LambdaCallback
 import matplotlib.pyplot as plt
 
 class LRFinder:
